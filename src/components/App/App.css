@@ -5,9 +5,62 @@
 }
 
 .app {
-  display: flex;
+  display: grid;
   background: #141527;
   height: 100vh;
+  width: 100vw;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 10fr;
+  grid-template-areas: 'nav header'
+                       'nav articles';
+}
+
+main {
+  grid-area: articles;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-y: auto;
+}
+
+
+.news {
+  width: 30vw;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 2px 3px 6px 0px black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.news>img {
+  max-width: 100%;
+}
+
+.news>footer {
+  background-color: #ab5df3;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.news>p {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: justify;
+  font-size: larger;
+} 
+
+.news>footer>p>a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news>footer>p {
   text-align: center;
-  width: 100%;
 }
