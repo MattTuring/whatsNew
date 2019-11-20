@@ -2,8 +2,8 @@ import React from 'react';
 import './NewsContainer.css'
 import NewsArticle from '../NewsArticle/NewsArticle'
 
-function NewsContainer(news) {
-    let newsArticles = news.news.map(article => {
+const NewsContainer = ({news}) => {
+    let newsArticles = news.map(article => {
         return <NewsArticle info={article} />
     })
 

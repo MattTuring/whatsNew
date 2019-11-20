@@ -7,7 +7,7 @@ import place from '../../img/place.svg'
 import space from '../../img/space-shuttle.svg'
 import heart from '../../img/heartbeat.svg'
 
-function Menu(props) {
+const Menu = (props) => {
   return (
     <nav onClick={props.onClick}>
       <h1><span>What's</span><span className='yellow'>New?</span></h1>

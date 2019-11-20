@@ -20,10 +20,9 @@ class App extends Component {
       ...technology],
       selected: undefined
     }
-    this.getNewsType = this.getNewsType.bind(this)
   }
 
-  getNewsType(event) {
+  getNewsType = (event) => {
     switch (event) {
       case 'local':
         this.setState({selected: local})
@@ -43,17 +42,7 @@ class App extends Component {
       default:
         break
     }
-
-    // if (event === 'local' || 'entertainment' || 'health' || 'science' || 'technology') {
-    //   let type = {}    
-    //   type[event]  
-    //   this.setState({selected: type})
-    // console.log(this.state)
   }
-
-
-
-
 
   render () {
     return (
