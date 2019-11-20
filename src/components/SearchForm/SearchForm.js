@@ -1,6 +1,10 @@
 import React from 'react';
 import './SearchForm.css';
 
-// SEARCHFORM COMPONENT CODE GOES HERE
+const SearchForm = () => {
+  return (
+  <input placeholder='Instant Article Search'></input>
+  )
+}
 
 export default SearchForm;

@@ -8,18 +8,22 @@ import technology from '../../data/technology';
 import './App.css';
 import NewsContainer from '../NewsContainer/NewsContainer'
 import Menu from '../Menu/Menu'
+import SearchForm from '../SearchForm/SearchForm'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      allNews: [...local,
+      selected: [...local,
       ...entertainment,
       ...health,
       ...science,
-      ...technology],
-      selected: undefined
+      ...technology]
     }
+  }
+
+  searchThroughNews = (value) => {
+
   }
 
   getNewsType = (event) => {
@@ -47,8 +51,9 @@ class App extends Component {
   render () {
     return (
       <div className="app">
+        <SearchForm />
         <Menu onClick={(event) => this.getNewsType(event.target.id)}/>
-        <NewsContainer news={this.state.selected ? this.state.selected : this.state.allNews} />
+        <NewsContainer news={this.state.selected} />
       </div>
     );
   }
