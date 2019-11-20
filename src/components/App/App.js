@@ -18,30 +18,37 @@ class App extends Component {
       ...entertainment,
       ...health,
       ...science,
-      ...technology]
+      ...technology],
+      filtered: undefined
     }
   }
 
   searchThroughNews = (value) => {
+    let filteredValues = this.state.selected.filter(newsType => {
+      return Object.values(newsType)[1].toLowerCase().includes(value.toLowerCase()) || Object.values(newsType)[3].toLowerCase().includes(value.toLowerCase())
+    })
 
+    this.setState({
+      filtered: filteredValues
+      })
   }
 
   getNewsType = (event) => {
     switch (event) {
       case 'local':
-        this.setState({selected: local})
+        this.setState({selected: local, filtered: undefined})
         break
       case 'technology':
-        this.setState({selected: technology})
+        this.setState({selected: technology, filtered: undefined})
         break
       case 'entertainment':
-        this.setState({selected: entertainment})
+        this.setState({selected: entertainment, filtered: undefined})
         break
       case 'science':
-        this.setState({selected: science})
+        this.setState({selected: science, filtered: undefined})
         break
       case 'health':
-        this.setState({selected: health})
+        this.setState({selected: health, filtered: undefined})
         break
       default:
         break
@@ -51,9 +58,9 @@ class App extends Component {
   render () {
     return (
       <div className="app">
-        <SearchForm />
+        <SearchForm search={this.searchThroughNews}/>
         <Menu onClick={(event) => this.getNewsType(event.target.id)}/>
-        <NewsContainer news={this.state.selected} />
+        <NewsContainer news={this.state.filtered ? this.state.filtered : this.state.selected} />
       </div>
     );
   }

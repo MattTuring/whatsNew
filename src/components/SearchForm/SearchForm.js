@@ -1,9 +1,9 @@
 import React from 'react';
 import './SearchForm.css';
 
-const SearchForm = () => {
+const SearchForm = (props) => {
   return (
-  <input placeholder='Instant Article Search'></input>
+  <input onChange={() => props.search(document.querySelector('input').value)} placeholder='Instant Article Search'></input>
   )
 }
 
