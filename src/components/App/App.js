@@ -13,18 +13,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      allNews: [local,
-      entertainment,
-      health,
-      science,
-      technology],
+      allNews: [...local,
+      ...entertainment,
+      ...health,
+      ...science,
+      ...technology],
       selected: undefined
     }
     this.getNewsType = this.getNewsType.bind(this)
   }
 
   getNewsType(event) {
-    
     switch (event) {
       case 'local':
         this.setState({selected: local})
@@ -42,7 +41,7 @@ class App extends Component {
         this.setState({selected: health})
         break
       default:
-        this.setState({selected: undefined})
+        break
     }
 
     // if (event === 'local' || 'entertainment' || 'health' || 'science' || 'technology') {
@@ -57,21 +56,10 @@ class App extends Component {
 
 
   render () {
-
-
-  
-    let AllNews = []
-    this.state.allNews.forEach(newsType => {
-      newsType.forEach(type => {
-        AllNews.push(type)
-      })
-    })
-
-
     return (
       <div className="app">
         <Menu onClick={(event) => this.getNewsType(event.target.id)}/>
-        <NewsContainer news={this.state.selected ? this.state.selected : AllNews} />
+        <NewsContainer news={this.state.selected ? this.state.selected : this.state.allNews} />
       </div>
     );
   }
