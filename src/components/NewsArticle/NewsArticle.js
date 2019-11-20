@@ -4,7 +4,7 @@ import './NewsArticle.css';
 function NewsArticle(props) {
     return (
     <article className='news'>
-            <img src={props.info.img}/>
+            <img alt='' src={props.info.img}/>
             <h1>{props.info.headline}</h1>
             <p>{props.info.description}</p>
             <footer>
