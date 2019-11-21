@@ -23,6 +23,18 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+  fetch('https://whats-new-api.herokuapp.com/api/v1/news')
+    .then(response => response.json())
+    .then(data => {
+      let allNews = [...data.local,...data.entertainment,
+      ...data.health,
+      ...data.science,
+      ...data.technology]
+      this.setState({selected: allNews})
+    })
+}
+
   searchThroughNews = (value) => {
     let filteredValues = this.state.selected.filter(newsType => {
       return Object.values(newsType)[1].toLowerCase().includes(value.toLowerCase()) || Object.values(newsType)[3].toLowerCase().includes(value.toLowerCase())

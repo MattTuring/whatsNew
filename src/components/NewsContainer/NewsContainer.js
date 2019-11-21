@@ -4,12 +4,12 @@ import NewsArticle from '../NewsArticle/NewsArticle'
 
 const NewsContainer = ({news}) => {
     let newsArticles = news.map(article => {
-        return <NewsArticle info={article} />
+      return <NewsArticle info={article} />
     })
 
     return (
         <main>
-            {newsArticles}
+          {newsArticles}
         </main>
     )
 

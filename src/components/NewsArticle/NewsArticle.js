@@ -8,9 +8,9 @@ function NewsArticle(props) {
             <h1>{props.info.headline}</h1>
             <p>{props.info.description}</p>
             <footer>
-                <p>
-                    <a href={props.info.url}>LINK</a>
-                </p>
+              <p>
+                <a href={props.info.url}>LINK</a>
+              </p>
             </footer>
         </article>
     )
