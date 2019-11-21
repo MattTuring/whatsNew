@@ -24,15 +24,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-  fetch('https://whats-new-api.herokuapp.com/api/v1/news')
-    .then(response => response.json())
-    .then(data => {
-      let allNews = [...data.local,...data.entertainment,
-      ...data.health,
-      ...data.science,
-      ...data.technology]
-      this.setState({selected: allNews})
-    })
+    fetch('https://whats-new-api.herokuapp.com/api/v1/news')
+      .then(response => response.json())
+      .then(data => {
+        let allNews = [...data.local,...data.entertainment,
+        ...data.health,
+        ...data.science,
+        ...data.technology]
+        this.setState({selected: allNews})
+      })
 }
 
   searchThroughNews = (value) => {
