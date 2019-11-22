@@ -9,7 +9,7 @@ function NewsArticle(props) {
             <p>{props.info.description}</p>
             <footer>
               <p>
-                <a href={props.info.url}>LINK</a>
+                <a href={props.info.url} rel="noopener noreferrer" target="_blank">LINK</a>
               </p>
             </footer>
         </article>

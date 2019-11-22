@@ -15,10 +15,10 @@ class App extends Component {
     super();
     this.state = {
       selected: [...local,
-      ...entertainment,
-      ...health,
-      ...science,
-      ...technology],
+                 ...entertainment,
+                 ...health,
+                 ...science,
+                 ...technology],
       filtered: undefined
     }
   }
@@ -27,17 +27,18 @@ class App extends Component {
     fetch('https://whats-new-api.herokuapp.com/api/v1/news')
       .then(response => response.json())
       .then(data => {
-        let allNews = [...data.local,...data.entertainment,
-        ...data.health,
-        ...data.science,
-        ...data.technology]
+        let allNews = [...data.local,
+                       ...data.entertainment,
+                       ...data.health,
+                       ...data.science,
+                       ...data.technology]
         this.setState({selected: allNews})
       })
 }
 
   searchThroughNews = (value) => {
     let filteredValues = this.state.selected.filter(newsType => {
-      return Object.values(newsType)[1].toLowerCase().includes(value.toLowerCase()) || Object.values(newsType)[3].toLowerCase().includes(value.toLowerCase())
+      return newsType.headline.toLowerCase().includes(value.toLowerCase()) || newsType.description.toLowerCase().includes(value.toLowerCase())
     })
 
     this.setState({
@@ -71,7 +72,7 @@ class App extends Component {
     return (
       <div className="app">
         <SearchForm search={this.searchThroughNews}/>
-        <Menu onClick={(event) => this.getNewsType(event.target.id)}/>
+        <Menu onClick={(event) => this.getNewsType(event.target.dataset.type)}/>
         <NewsContainer news={this.state.filtered ? this.state.filtered : this.state.selected} />
       </div>
     );

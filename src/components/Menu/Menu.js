@@ -11,11 +11,11 @@ const Menu = (props) => {
   return (
     <nav onClick={props.onClick}>
       <h1><span>What's</span><span className='yellow'>New?</span></h1>
-      <section id='local'> <img alt='place' className='navImg' src={place}/><span>Local News</span></section>
-      <section id='technology'> <img alt='techology' className='navImg' src={robot}/><span>Technology</span></section>
-      <section id='entertainment'> <img alt='entertainment' className='navImg' src={camera}/><span>Entertainment</span></section>
-      <section id='science'> <img alt='science' className='navImg' src={space}/><span>Science</span></section>
-      <section id='health'> <img alt='health' className='navImg' src={heart}/><span>Health</span></section>
+      <section data-type='local'> <img data-type='local' alt='place' className='navImg' src={place}/><span data-type='local'>Local News</span></section>
+      <section data-type='technology'> <img data-type='technology' alt='technology' className='navImg' src={robot}/><span data-type='technology'>Technology</span></section>
+      <section data-type='entertainment'> <img data-type='entertainment' alt='entertainment' className='navImg' src={camera}/><span data-type='entertainment'>Entertainment</span></section>
+      <section data-type='science'> <img data-type='science' alt='science' className='navImg' src={space}/><span data-type='science'>Science</span></section>
+      <section data-type='health'> <img data-type='health' alt='health' className='navImg' src={heart}/><span data-type='health'>Health</span></section>
     </nav>
   )
 }
